@@ -43,9 +43,13 @@ var getJSONData = function (url) {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function(e) {
 
   
+
+  
+});
+
   //Función que ejecuta el login.
   function redirectLogin() {
     if (localStorage.getItem('email') == null && localStorage.getItem("password") == null) {
@@ -60,12 +64,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   //Función que se ejecuta cuando se raliza clic en Cerrar sesión
 
-      const buttonSignoff = document.getElementById("sign-off");
+      let buttonSignoff = document.getElementById("sign-off");
       buttonSignoff.addEventListener("click", signoff);
   
       function signoff() {
           localStorage.clear();
           location.reload();
       }
-  
-});
