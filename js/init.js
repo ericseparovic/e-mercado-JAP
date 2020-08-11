@@ -46,14 +46,14 @@ var getJSONData = function (url) {
 document.addEventListener("DOMContentLoaded", function(e) {
 
   
-
-  
-});
-
-  //Función que ejecuta el login.
+ //Función que ejecuta el login.
   function redirectLogin() {
+    
+    let url = location.href;
+    let urlLogin= url.slice(0,-10) + "login.html";
+  
     if (localStorage.getItem('email') == null && localStorage.getItem("password") == null) {
-      if (location.pathname !== "/login.html") {
+      if (location.href !== urlLogin) {
         location.href = "login.html"
       }
     }
@@ -64,10 +64,11 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   //Función que se ejecuta cuando se raliza clic en Cerrar sesión
 
-      let buttonSignoff = document.getElementById("sign-off");
+      const buttonSignoff = document.getElementById("sign-off");
       buttonSignoff.addEventListener("click", signoff);
   
       function signoff() {
           localStorage.clear();
           location.reload();
       }
+});
