@@ -176,15 +176,16 @@ input {
   border-radius: 25px;
   text-align: left;
   padding-left: 10px;
-  outline: none;
+	outline:0px;
 }
+
 
 input[type="password"]:focus,
 input[type="email"]:focus {
   border-color: #d61c6c;
   box-shadow: .8px .8px .8px .8px #d61c6c inset;
   border-radius: 25px;
-
+  outline:0px;
 }
 
 
