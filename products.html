@@ -16,32 +16,76 @@
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <button type="button" id="sign-off">Cerrar sesión</button>
+        <a class="py-2 d-none d-md-inline-block nav" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
+        <a class="py-2 d-none d-md-inline-block nav" href="cart.html">Mi carrito</a>
+        <div class="container-login">
+          <img src="/img/logout.png" alt="" class="logout" id="sign-off">
+          <span id="username" class="user-name"></span>
+        </div>
       </div>
     </nav>
-    <div class="container p-5">
-      <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-        <h4 class="alert-heading">¡A trabajar! :)</h4>
-        <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) y Entrega 2 (Fecha de entrega: 30/08/2020).</p>
-        <hr>
-        <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <main role="main" class="pb-5">
+      <div class="text-center p-4">
+          <h2>Productos</h2>
+          <p class="lead">Verás aquí todas los productos del sitio.</p>
       </div>
-    </div>
-    <footer class="text-muted bg-light">
       <div class="container">
-        <p class="float-right">
-          <a href="#">Volver arriba</a>
-        </p>
-        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+          <div class="row">
+              <div class="col text-right">
+                  <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                      <label class="btn btn-light active" id="sortAsc" >
+                          <input type="radio" name="options" autocomplete="off" checked>A-Z
+                      </label>
+                      <label class="btn btn-light" id="sortDesc" >
+                          <input type="radio" name="options" autocomplete="off">Z-A
+                      </label>
+                      <label class="btn btn-light" id="sortByCount" >
+                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Cant.
+                      </label>
+                  </div>
+              </div>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-md-6"></div>
+              <div class="col-md-6 col-sm-12 mb-1 container">
+                <div class="row container p-0 m-0">
+                  <div class="col">
+                    <p class="font-weight-normal text-right my-2">Cant.</p>
+                  </div>
+                  <div class="col">
+                    <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+                  </div>
+                  <div class="col">
+                    <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+                  </div>
+                  <div class="col-3 p-0">
+                    <div class="btn-group" role="group">
+                      <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="list-group" id="cat-list-container">
+              </div>
+          </div>
       </div>
-    </footer>
-    <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
+  </main>
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>

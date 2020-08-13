@@ -71,4 +71,15 @@ document.addEventListener("DOMContentLoaded", function(e) {
           localStorage.clear();
           location.reload();
       }
+
+
+      //Funcion que ejecuta el nombre de usuario en pantalla
+
+      const userName = document.getElementById("username");
+
+      function user() {
+        if(localStorage.getItem('email') != null || localStorage.getItem != undefined)
+        userName.innerHTML = `<span id="username" class="user-name">`+ localStorage.getItem('email') + `</span>`
+      }
+      user();
 });

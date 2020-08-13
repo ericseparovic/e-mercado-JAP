@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
             /*Redirecciona a index.html*/
-            window.location.href = "index.html"
+            window.location.href = "index.html";
         } 
     }
 });
