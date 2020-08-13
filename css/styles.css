@@ -176,6 +176,7 @@ input {
   border-radius: 25px;
   text-align: left;
   padding-left: 10px;
+  outline: none;
 }
 
 input[type="password"]:focus,
