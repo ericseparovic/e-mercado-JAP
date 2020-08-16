@@ -3,11 +3,11 @@
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e) {
 
-  
+ //Boton de iniciar sesion
     const buttonLogin = document.getElementById("button-login");
     buttonLogin.addEventListener("click", login);
 
-    /*Funcion que se ejecuta cuando se realiza clic en Ingresar*/
+//Funcion que se ejecuta cuando se realiza clic en Ingresar
     function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;

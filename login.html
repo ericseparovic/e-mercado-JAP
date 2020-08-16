@@ -13,6 +13,9 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!--Google-->
+  <meta name="google-signin-client_id" content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <style>
     html,
     body {
@@ -46,8 +49,8 @@
         <div class="input-box submit">
           <input type="button" value="Ingresar" id="button-login">
         </div>
-
-        <a href="#" id="registration">Registrarse</a>
+        <a href="#" id="registration" class="registration">Registrarse</a>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </form>
     </div>
   </div><!--Fin HTML login-->

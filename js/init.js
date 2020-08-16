@@ -43,15 +43,13 @@ var getJSONData = function (url) {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e) {
 
-  
- //Función que ejecuta el login.
+  //Función que ejecuta el login.
   function redirectLogin() {
-    
+
     let url = location.href;
-    let urlLogin= url.slice(0,-10) + "login.html";
-  
+    let urlLogin = url.slice(0, -10) + "login.html";
+
     if (localStorage.getItem('email') == null && localStorage.getItem("password") == null) {
       if (location.href !== urlLogin) {
         location.href = "login.html"
@@ -64,22 +62,51 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
   //Función que se ejecuta cuando se raliza clic en Cerrar sesión
 
-      const buttonSignoff = document.getElementById("sign-off");
-      buttonSignoff.addEventListener("click", signoff);
-  
-      function signoff() {
-          localStorage.clear();
-          location.reload();
-      }
+  let buttonSignoff = document.getElementById("sign-off");
+  buttonSignoff.addEventListener("click", signOff);
+
+  function signOff() {
+    localStorage.clear();
+    location.reload();
+  }
+
+  //Funcion que ejecuta el nombre de usuario en pantalla
+
+  const userName = document.getElementById("username");
+
+  function user() {
+    if (localStorage.getItem('email') != null || localStorage.getItem != undefined)
+      userName.innerHTML = `<span id="username" class="user-name">` + localStorage.getItem('email') + `</span>`
+  }
+  user();
 
 
-      //Funcion que ejecuta el nombre de usuario en pantalla
+  // Funcion para iniciar sesion con google.
+  function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
 
-      const userName = document.getElementById("username");
+    const email = profile.getEmail();
+    const password = "password";
 
-      function user() {
-        if(localStorage.getItem('email') != null || localStorage.getItem != undefined)
-        userName.innerHTML = `<span id="username" class="user-name">`+ localStorage.getItem('email') + `</span>`
-      }
-      user();
-});
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", "password");
+    /*Redirecciona a index.html*/
+    window.location.href = "index.html";
+  }
+
+
+  //Funcion que se ejecuta cuando se realiza clic en boton cerrar sesion
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    localStorage.clear();
+    location.reload();
+      });
+   }
+
+   function onLoad() {
+    gapi.load('auth2', function () {
+      gapi.auth2.init();
+    });
+    }
