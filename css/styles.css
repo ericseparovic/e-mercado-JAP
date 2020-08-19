@@ -227,9 +227,9 @@ input[type=button]:active {
 /*Fin estilos login*/
 
 
-/*Estilos boton username*/
+/*Estilos boton - username*/
 .container-login {
-  width: 350px;
+  width: 320px;
   padding: 1px;
 }
 
@@ -259,7 +259,7 @@ input[type=button]:active {
 .registration {
   padding-bottom: 20px;
 }
-/*Fin estilos username/
+/*Fin estilos  boton - username/
 
 
 
@@ -281,4 +281,10 @@ input[type=button]:active {
 .g-signin2 {
    margin-left: 80px;
 }
+
+.abcRioButtonLightBlue {
+  color: #757575;
+  border-radius: 25px !important;
+}
+
 /*Fin Estilos boton de google*/
