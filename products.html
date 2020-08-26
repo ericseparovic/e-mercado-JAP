@@ -48,6 +48,12 @@
                         <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia.
                       </label>
                   </div>
+                  <div class="container-search">
+                    <form action="" id="form-search">
+                        <input type="search" id="search" class="search" placeholder="Buscar productos">
+                        <button type="button" value="Buscar" id="button-search">Buscar</button>
+                    </form>   
+                  </div>
               </div>
           </div>
           <div class="row justify-content-end">
@@ -74,6 +80,7 @@
           </div>
           <div class="row">
               <div class="list-group" id="cat-list-container">
+                <div id="result-not-found"></div>
               </div>
           </div>
       </div>
@@ -93,5 +100,6 @@
     <script src="js/init.js"></script>
     <script src="js/products.js"></script>
     <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/search.js"></script>
   </body>
 </html>
