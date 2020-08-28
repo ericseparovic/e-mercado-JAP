@@ -292,28 +292,63 @@ input[type="button"]:active {
 
 /*Inicio estilos buscador*/
 .container-search {
-  width: 400px;
+  width: 50%;
   float: left;
   margin-bottom: 30px;
 }
 
 .search {
-  height: 30px;
-  width: 300px;
+  height: 35px;
+  width: 100%;
 }
 
-button[type="button"] {
+.search:focus {
+  border: 1px solid #d61c6c;
+  box-shadow: 1px 1px 1px 1px #d61c6c inset;
+}
+
+#result-not-found {
+  font-size: 25px;
+  font-weight: 400;
+  
+}
+
+/* button[type="button"] {
   background-color: #d61c6c;
   color: white;
   font-size: 18px;
   text-align: center;
   border-radius: 20px;
   
-}
+} */
 
-button[type="button"]:active {
+/* button[type="button"]:active {
   box-shadow: 2px 6px 12px 2px rgba(0,0,0,0.41) inset;
-}
+} */
 
 
 /*Fin estilos buscador*/
+
+/*Inicio estilos botones filtro*/
+.btn-light:hover {
+  color: white;
+  background-color: #d61c6c;
+  border-color: #dae0e5;
+  font-weight: bold;
+}
+
+.btn-light {
+  color: black;
+  border-color: #dae0e5;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.btn-light:active {
+  color: white;
+  background-color: #d61c6c;
+  border-color: #dae0e5;
+  font-weight: bold;
+}
+/*Fin estilos botones filtro*/
+

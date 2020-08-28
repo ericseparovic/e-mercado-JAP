@@ -50,6 +50,12 @@ function sortProducts(criteria, array, arraySearch){
             let nameProduct = producto.name.toLowerCase();
             if(nameProduct.indexOf(textSearch) !== -1){
                 result.push(producto);
+            } else if(nameProduct.indexOf(textSearch) === -1){
+                let htmlContentToAppend = `
+                    <div id="result-not-found"><p>Resultado no encontrado</p></div>
+                `;
+                
+                document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
             }
         }      
     }
@@ -131,11 +137,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     });
 
-    //Se ejecuta la funcion para realizar search
-    document.getElementById("button-search").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_SEARCH);
-    });
-
+    //Ejecuta la funcion sortAndShowProducts(ORDER_SEARCH) cuando se escribe en el input search
     document.getElementById("form-search").addEventListener("keyup", function(){
         sortAndShowProducts(ORDER_SEARCH);
     });
