@@ -1,6 +1,6 @@
 const ORDER_ASC_BY_NAME = "AZ";
-const ORDER_BY_PROD_COUNT_MAX = "PrecioMaximo.";
-const ORDER_BY_PROD_COUNT_MIN = "PrecioMinimo.";
+const ORDER_BY_PROD_COST_MAX = "PrecioMaximo.";
+const ORDER_BY_PROD_COST_MIN = "PrecioMinimo.";
 const ORDER_BY_RELEVANCE = "Relevancia";
 const ORDER_SEARCH = "search";
 
@@ -18,7 +18,8 @@ function sortProducts(criteria, array, arraySearch){
             if ( a.name > b.name ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT_MAX){
+    }else if (criteria === ORDER_BY_PROD_COST_MAX){
+        //Cuando se realiza clic en el boton ordenar de mayor a menor se ejecuta este condicional
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.cost);
             let bCount = parseInt(b.cost);
@@ -26,7 +27,8 @@ function sortProducts(criteria, array, arraySearch){
             if ( aCount < bCount ){ return 1; }
             return 0;
         });
-    }else if (criteria === ORDER_BY_PROD_COUNT_MIN){
+    }else if (criteria === ORDER_BY_PROD_COST_MIN){
+        //Cando se realiza clic en el boton ordenar de menor a mayor se ejecuta este condicional
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.cost);
             let bCount = parseInt(b.cost);
@@ -35,6 +37,7 @@ function sortProducts(criteria, array, arraySearch){
             return 0;
         });
     } else if (criteria === ORDER_BY_RELEVANCE){
+        //Cuando se realiza clic en el boton relevancia se ejecuta este condicional
         result = array.sort(function(a, b) {
             let aCount = parseInt(a.soldCount);
             let bCount = parseInt(b.soldCount);
@@ -43,6 +46,7 @@ function sortProducts(criteria, array, arraySearch){
             return 0;
         });
     }  else if (criteria === ORDER_SEARCH) {
+        //Cuando se escribe en el input search se ejecuta este condicional
         const inputSearch = document.getElementById('search');
         const textSearch = inputSearch.value.toLowerCase();
 
@@ -122,12 +126,12 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 
     document.getElementById("sortByCountMax").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PROD_COUNT_MAX);
+        sortAndShowProducts(ORDER_BY_PROD_COST_MAX);
     });
 
-    //Ejecuta la funcion para ordenar de menor a mayor precio.
+    
     document.getElementById("sortByCountMin").addEventListener("click", function(){
-        sortAndShowProducts(ORDER_BY_PROD_COUNT_MIN);
+        sortAndShowProducts(ORDER_BY_PROD_COST_MIN);
 
     });
 
