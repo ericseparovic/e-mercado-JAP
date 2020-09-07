@@ -20,6 +20,7 @@ function showInfoProducts() {
     productCategoryHTML.innerHTML = productInfo.category;
     productCountHTML.innerHTML = productInfo.soldCount;
 
+    //Carga los productos en la variable products y llama a la funcion showProductsRelated para mostrar los productos relacionados
     getJSONDataProductRelated(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
             products = resultObj.data;
@@ -49,7 +50,7 @@ function showImagesGallery(img) {
     }
 }
 
-//Muestra los prouctos relacionados
+//Muestra los pruductos relacionados
 function showProductsRelated() {
     
     let ProductsRelated = productInfo.relatedProducts;
@@ -73,7 +74,7 @@ function showProductsRelated() {
     }
 }
 
-//Muestra los comentarios en HTML
+//Muestra los comentarios
 function showComments(addComment) {
     
     if(addComment !== undefined){
@@ -93,8 +94,8 @@ function showComments(addComment) {
             <div class="box-comment">
                 <p class="name-user">${comment.user}</p>
                 <span class="date">${comment.dateTime}</span>
-                <blockquote>${comment.description}</blockquote>
                 ${star}
+                <blockquote>${comment.description}</blockquote>
             </div>                
             `
             document.getElementById('comments-list').innerHTML = commentsHTML;
@@ -103,32 +104,7 @@ function showComments(addComment) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function (e) {
-
-    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            productInfo = resultObj.data;
-             
-            //Muestra la informacion del producto
-            showInfoProducts();
-            //Muestro las imagenes en forma de galería
-            showImagesGallery(productInfo.images);
-        }
-    });
-
-
-    getJSONDataComments(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
-        if (resultObj.status === "ok") {
-            comments = resultObj.data;
-
-            //Muestra los comentarios
-            showComments();
-        }
-    });
-});
-
-
-
+//Retorna la calificacion en formato de estrellas
 function showStar(score){
     
     let star = '';
@@ -180,7 +156,7 @@ function showStar(score){
 }
 
 
-
+//Boton enviar comentario
 let btnSendComment = document.getElementById('button-comment');
     btnSendComment.addEventListener('click', newComment);
 
@@ -221,6 +197,37 @@ function date(){
     dateAndHour = `${year}-${month+1}-${day} ${hour}`;
     return dateAndHour;
 }
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+
+    getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            productInfo = resultObj.data;
+             
+            //Muestra la informacion del producto
+            showInfoProducts();
+            //Muestro las imagenes en forma de galería
+            showImagesGallery(productInfo.images);
+        }
+    });
+
+
+    getJSONDataComments(PRODUCT_INFO_COMMENTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            comments = resultObj.data;
+
+            //Muestra los comentarios
+            showComments();
+        }
+    });
+});
+
+
+
+
+
+
 
 
 
