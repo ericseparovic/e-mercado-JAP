@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
             const showAlert = document.getElementById("alert-email-password");
             showAlert.style.visibility = "visible";       
         } else if (email !== "" && password !== ""){
-            /*Guardando los datos en el LocalStorage*/
+            //Guardando los datos en el LocalStorage
             localStorage.setItem("email", email);
             localStorage.setItem("password", password);
-            /*Redirecciona a index.html*/
+            //Redirecciona a index.html
             window.location.href = "index.html";
         } 
     }

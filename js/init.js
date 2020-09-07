@@ -30,6 +30,7 @@ var getJSONData = function (url) {
       result.status = 'ok';
       result.data = response;
       hideSpinner();
+
       return result;
     })
     .catch(function (error) {
@@ -39,6 +40,7 @@ var getJSONData = function (url) {
       return result;
     });
 }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -50,8 +52,8 @@ var getJSONData = function (url) {
     let url = location.href;
     let urlLogin = url.slice(0, -10) + "login.html";
 
-    if (localStorage.getItem('email') == null && localStorage.getItem("password") == null) {
-      if (location.href !== urlLogin) {
+    if (localStorage.getItem('email') == null && localStorage.getItem("password") == null){
+      if (location.href !== urlLogin){
         location.href = "login.html"
       }
     }
@@ -62,8 +64,8 @@ var getJSONData = function (url) {
 
   //Función que se ejecuta cuando se raliza clic en Cerrar sesión
 
-  let buttonSignoff = document.getElementById("sign-off");
-  buttonSignoff.addEventListener("click", signOff);
+  let buttonSignOff = document.getElementById("sign-off");
+  buttonSignOff.addEventListener("click", signOff);
 
   function signOff() {
     localStorage.clear();
@@ -110,3 +112,55 @@ var getJSONData = function (url) {
       gapi.auth2.init();
     });
     }
+
+//Funcion que llama a la API productos, para mostrar los productos relacionados en product-info.html
+    var getJSONDataProductRelated = function (url) {
+      var result = {};
+      return fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw Error(response.statusText);
+          }
+        })
+        .then(function (response) {
+          result.status = 'ok';
+          result.data = response;
+          hideSpinner();
+          return result;
+        })
+        .catch(function (error) {
+          result.status = 'error';
+          result.data = error;
+          return result;
+        });
+    }
+
+
+//Funcion que llama a la API comentarios para ser mostrados en product-info.html
+
+var getJSONDataComments = function (url) {
+  var result = {};
+  return fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw Error(response.statusText);
+      }
+    })
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
+    })
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      return result;
+    });
+}
+
+

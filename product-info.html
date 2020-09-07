@@ -31,14 +31,81 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+      </div>
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Precio</dt>
+        <dd>
+          <p id="productPrecio"></p>
+        </dd>
+
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Categoría</dt>
+        <dd>
+          <p id="productCategory"></p>
+        </dd>
+
+        <dt>Cantidad vendidos</dt>
+        <dd>
+          <p id="productCount"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+
+        <dt>Productos relacionados</dt>
+        <dd>
+        <div id="product-related">
+        </div>
+        </dd>
+       
+        <dt>Comentarios</dt>
+        <dd>
+        <div id="comments-list" class="container-comments">
+        
+        </div>
+
+        <dt>Enviar comentario</dt>
+        <div id="container-form">
+        <form action="" id="new-comments" id="form-container">
+            <div class="box-description">
+              <textarea name="" id="description" placeholder="Escribe un comentario"></textarea> 
+            </div>
+            <h5>Calificación</h5>
+            <p class="clasificacion">
+              <input id="radio1" type="radio" name="estrellas" value="5">
+              <label for="radio1">★</label>
+              <input id="radio2" type="radio" name="estrellas" value="4">
+              <label for="radio2">★</label>
+              <input id="radio3" type="radio" name="estrellas" value="3">
+              <label for="radio3">★</label>
+              <input id="radio4" type="radio" name="estrellas" value="2">
+              <label for="radio4">★</label>
+              <input id="radio5" type="radio" name="estrellas" value="1">
+              <label for="radio5">★</label>
+            </p>
+            <div clas="box-button">
+              <input type="button" value="Enviar" id="button-comment">
+            </div>
+        </form>
+      </div>
+        </dd>
+      </dl>
     </div>
-  </div>
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">

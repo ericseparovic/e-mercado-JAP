@@ -289,6 +289,11 @@ input[type="button"]:active {
 
 /*Fin Estilos boton de google*/
 
+/*Inicio estilos generales product.html*/
+h4 {
+  font-weight: bold;
+}
+/*Fin estilos generales product.html*/
 
 /*Inicio estilos buscador*/
 .container-search {
@@ -352,3 +357,154 @@ input[type="button"]:active {
 }
 /*Fin estilos botones filtro*/
 
+
+
+/*Inicio Estilos generales producto-info.html*/
+dt {
+  font-size: 20px;
+  padding-top:20px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+#product-related {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.card-text {
+  height: 100px;
+}
+
+.card {
+  margin-right: 20px;
+}
+
+.btn-primary {
+  background-color: #d61c6c;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8b1b4c;
+  border: none;
+}
+
+/*Fin Estilos generales producto-info.html*/
+
+
+/*Inico estilos comentarios*/
+.box-comment {
+  width: 90%;
+  height: 160px;
+  margin: 0px auto;
+  padding: 20px;
+  padding-left:30px;
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+  border-radius: 60px 0px 60px 0px;
+  -moz-border-radius: 60px 0px 60px 0px;
+  -webkit-border-radius: 60px 0px 60px 0px;
+  border: 0px solid #000000;
+  background-color: white;
+}
+
+.name-user {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date {
+  float: right;
+  font-style: italic;
+}
+
+/*Fin estilos comentarios*/
+
+/*Inicio estilos del formulario de comentario*/
+.box-description {
+  text-align: center;
+}
+
+#description {
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+}
+
+.box-button {
+  width: 100px;
+}
+
+#button-comment {
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+}
+
+#container-form {
+  width: 90%;
+  margin: 0px auto;
+}
+/*Fin estilos del formulario comentario*/
+
+
+/*Inicio estilos calificacion*/
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+  font-size:35px;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
+h5 {
+  font-weight: bold;
+}
+/*Fin estilos calificacion*/
+
+
+
+body {
+  background: linear-gradient(to bottom, #D5DEE7 0%, #E8EBF2 50%, #E2E7ED 100%), linear-gradient(to bottom, rgba(0,0,0,0.02) 50%, rgba(255,255,255,0.02) 61%, rgba(0,0,0,0.02) 73%), linear-gradient(33deg, rgba(255,255,255,0.20) 0%, rgba(0,0,0,0.20) 100%);
+ background-blend-mode: normal,color-burn; 
+ background-size: cover;
+}
