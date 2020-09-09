@@ -153,7 +153,6 @@ var getJSONDataComments = function (url) {
     .then(function (response) {
       result.status = 'ok';
       result.data = response;
-      hideSpinner();
       return result;
     })
     .catch(function (error) {
