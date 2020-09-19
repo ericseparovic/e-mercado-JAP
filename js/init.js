@@ -30,13 +30,11 @@ var getJSONData = function (url) {
       result.status = 'ok';
       result.data = response;
       hideSpinner();
-
       return result;
     })
     .catch(function (error) {
       result.status = 'error';
       result.data = error;
-      hideSpinner();
       return result;
     });
 }

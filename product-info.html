@@ -24,10 +24,18 @@
       <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block nav" href="cart.html">Mi carrito</a>
       <div class="container-login">
-        <a href="#" onclick="signOut();"><img src="img/logout.png" alt="" class="logout" id="sign-off"></a>
-        <span id="username" class="user-name"></span>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span id="username" class="user-name"></span>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html"><img src="img/carrito-de-compras.png" alt="" class="icon-login"><span class="box-item">Mi Carrito</span></a>
+            <a class="dropdown-item" href="my-profile.html"><img src="img/usuario.png" alt="" class="icon-login"><span class="box-item">Perfil</span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt="" id="sign-off" class="icon-login"><span class="box-item">Salir</span></a>
+          </div>
+        </div>     
       </div>
     </div>
   </nav>
@@ -40,32 +48,52 @@
       <h3 id="productName"></h3>
       <hr class="my-3">
       <dl>
-        <dt>Precio</dt>
-        <dd>
-          <p id="productPrecio"></p>
-        </dd>
+        <div class="container-info">
+          <div class="box-info">
+            <dt>Precio</dt>
+            <dd>
+              <p id="productPrecio"></p>
+            </dd>
 
-        <dt>Descripción</dt>
-        <dd>
-          <p id="productDescription"></p>
-        </dd>
+            <dt>Descripción</dt>
+            <dd>
+              <p id="productDescription"></p>
+            </dd>
 
-        <dt>Categoría</dt>
-        <dd>
-          <p id="productCategory"></p>
-        </dd>
+            <dt>Categoría</dt>
+            <dd>
+              <p id="productCategory"></p>
+            </dd>
 
-        <dt>Cantidad vendidos</dt>
-        <dd>
-          <p id="productCount"></p>
-        </dd>
-
-        <dt>Imágenes ilustrativas</dt>
-        <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+            <dt>Cantidad vendidos</dt>
+            <dd>
+              <p id="productCount"></p>
+            </dd>
           </div>
-        </dd>
-
+            <div class="box-image">
+            <dt>Imágenes ilustrativas</dt>
+            <dd>
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner" id="carousel">
+                
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </dd>
+          </div>
+        </div>
         <dt>Productos relacionados</dt>
         <dd>
         <div id="product-related">

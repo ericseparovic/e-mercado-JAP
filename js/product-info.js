@@ -31,24 +31,30 @@ function showInfoProducts() {
 }
 
 
-//Muestra la galeria de imagenes
-function showImagesGallery(img) {
+//Muestra imagenes relacionadas al procuto seleccionado
+function showImagesCarousel(images){
 
     let htmlContentToAppend = "";
-
-    for (let i = 0; i < img.length; i++) {
-        let imageSrc = img[i];
-
-        htmlContentToAppend += `
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+    let i = 0;
+    for(let index in images){
+        if(i === 0){
+            htmlContentToAppend += `
+            <div class="carousel-item active">
+                <img class="d-block w-100" src="${images[index]}" alt="First slide">
             </div>
-        </div>
-        `
-        document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
+            `
+        } else {
+            htmlContentToAppend += `
+            <div class="carousel-item">
+                <img class="d-block w-100" src="${images[index]}" alt="Second slide">
+            </div>
+            `
+        }
+        i++;
     }
+    document.getElementById('carousel').innerHTML = htmlContentToAppend;
 }
+
 
 //Muestra los pruductos relacionados
 function showProductsRelated() {
@@ -77,6 +83,7 @@ function showProductsRelated() {
 //Muestra los comentarios
 function showComments(addComment) {
     
+    //Se verifica si la variable addCommnet tiene un comentario nuevo, en caso que sea true, se agrega el comentario en el array comments para poder ser mostrado en HTML.
     if(addComment !== undefined){
         comments.push(addComment);
         addComment = undefined;
@@ -90,7 +97,6 @@ function showComments(addComment) {
         let star = showStar(score);
 
         commentsHTML += `
-    
             <div class="box-comment">
                 <p class="name-user">${comment.user}</p>
                 <span class="date">${comment.dateTime}</span>
@@ -203,12 +209,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            productInfo = resultObj.data;
-             
+            productInfo = resultObj.data;    
             //Muestra la informacion del producto
             showInfoProducts();
-            //Muestro las imagenes en forma de galería
-            showImagesGallery(productInfo.images);
+            //Muestro las imagenes en forma de carrusel
+            showImagesCarousel(productInfo.images)
         }
     });
 
@@ -222,12 +227,3 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     });
 });
-
-
-
-
-
-
-
-
-

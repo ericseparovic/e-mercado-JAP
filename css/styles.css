@@ -226,41 +226,15 @@ input[type="button"]:active {
 
 /*Fin estilos login*/
 
-
-/*Estilos boton - username*/
-.container-login {
-  width: 320px;
-  padding: 1px;
+/*Inicio estilos mi perfil*/
+.icon-login {
+  width: 20px;
 }
 
-.logout {
-  width: 40px;
-  cursor: pointer;
-  background-color: #d61c6c;
-  border-radius: 30%;
-  padding: 5px;
+.box-item {
+  padding-left: 10px;
 }
-
-.logout:hover {
-  background-color: #d61c6da9;
-  transform: scale(1.1,1.1)}
-
-.logout:active {
-  box-shadow: 2px 6px 12px 2px rgba(0,0,0,0.41) inset;
-}
-
-.user-name {
-  color: white;
-  font-weight: bold;
-  padding-left: 5px;
-}
-
-
-.registration {
-  padding-bottom: 20px;
-}
-/*Fin estilos  boton - username/
-
+/*Fin estilos mi perfil*/
 
 
 /*Inicio estilos navegacion*/
@@ -394,6 +368,18 @@ h3 {
   border: none;
 }
 
+.container-info {
+  display: flex;
+}
+
+.box-info {
+  max-width: 500px;
+}
+
+.box-image {
+  width: 50%;
+  padding: 20px;
+}
 /*Fin Estilos generales producto-info.html*/
 
 
@@ -500,6 +486,7 @@ h5 {
   font-weight: bold;
 }
 /*Fin estilos calificacion*/
+
 
 
 
