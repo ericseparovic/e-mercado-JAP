@@ -6,6 +6,7 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+const CART = 'https://japdevdep.github.io/ecommerce-api/cart/654.json';
 
 var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -40,9 +41,6 @@ var getJSONData = function (url) {
 }
 
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
 
   //Función que ejecuta el login.
   function redirectLogin() {
@@ -61,7 +59,6 @@ var getJSONData = function (url) {
 
 
   //Función que se ejecuta cuando se raliza clic en Cerrar sesión
-
   let buttonSignOff = document.getElementById("sign-off");
   buttonSignOff.addEventListener("click", signOff);
 
@@ -137,7 +134,6 @@ var getJSONData = function (url) {
 
 
 //Funcion que llama a la API comentarios para ser mostrados en product-info.html
-
 var getJSONDataComments = function (url) {
   var result = {};
   return fetch(url)
@@ -159,5 +155,14 @@ var getJSONDataComments = function (url) {
       return result;
     });
 }
+
+
+//Muestra cantidad de productos
+showCount()
+function showCount(){
+  let cantidad = JSON.parse(localStorage.getItem('cantidad'));
+  document.getElementById('badge-count').innerHTML = cantidad;
+}
+
 
 
