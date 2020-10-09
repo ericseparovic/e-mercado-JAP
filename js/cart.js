@@ -3,7 +3,8 @@ var itemCarrito;
 var articles;
 var items;
 
-//Funcion que agrupa eventos para agrupar eventos
+
+//Funcion que agrupa eventos
 eventListener();
 function eventListener() {
     //Obtiene datos JSON
@@ -39,8 +40,9 @@ function showCart(articles) {
     let itemHTML = "";
 
     for (let item of articles) {
+        //Calcula el subtotal a pagar por producto
         let subTotalItem = getSubTotalItem(item.unitCost, item.count);
-
+        
         itemHTML += ` 
         <tr>
             <td>${item.name}</td>
@@ -55,7 +57,7 @@ function showCart(articles) {
     document.getElementById("articles").innerHTML = itemHTML;
 
     //Funcion que calcula detalle a pagar
-    detailToPay(articles);
+    detailToPay();
 
     //Muestra cantidad de productos en el carrito
     showCountCart();
@@ -63,7 +65,7 @@ function showCart(articles) {
 
 
 //Funcion que calcula detalle a pagar
-function detailToPay(articles) {
+function detailToPay() {
     var subTotalToPay = 0;
     var totalShipping = 0;
     var totalToPay = 0;
@@ -124,16 +126,17 @@ function increaseQuantity(event) {
 
     //Actualiza la cantidad del producto y se crea un nuevo objeto con la cantidad acutalizada.
     const items = articles.map((item) => {
+
         if (item.name === product) {
             item.count = quantity;
             return item;
         } else {
             return item;
         }
-    });
-    
-    showCart(items);
 
+    });
+
+    showCart(items);
 }
 
 
@@ -203,8 +206,12 @@ function clearProductCart(event){
 
 //Muestra cantidad de productos
 function showCountCart(){
-    let badgeCount = articles.length;
+    let badgeCount = 0;
 
+    articles.forEach(item => {
+        badgeCount += item.count;
+    });
+  
     localStorage.setItem('cantidad', JSON.stringify(badgeCount));
 
     document.getElementById('badge-count').innerHTML = badgeCount;

@@ -90,7 +90,7 @@
         <div class="datos-envio">
           <div class="box-title">
             <h5>Datos de Envío</h5>
-          </div>          
+          </div>
           <form>
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -113,25 +113,38 @@
         <div class="forma-pago">
           <div class="box-title">
             <h5>Forma de Pago</h5>
-          </div> 
+          </div>
           <p>Seleccione medio de pago</p>
-          <div class="custom-control custom-radio">
-            <input id="bander" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="bander">
-              <img src="img/banred.png" alt="">
-            </label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="bancos" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="bancos">
-              <img src="img/bancos_v2019.png" alt="">
-            </label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="visa" type="radio" class="custom-control-input" required="">
-            <label class="custom-control-label" for="visa">
-              <img src="img/visa.png" alt="">
-            </label>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Seleccionar
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="custom-control custom-radio">
+                    <input id="bander" type="radio" class="custom-control-input" required="">
+                    <label class="custom-control-label" for="bander">
+                      en proceso...
+                    </label>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary" id="save-modal">Guardar</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -139,7 +152,7 @@
         <div class="envio" id="tipo-envio">
           <div class="box-title">
             <h5>Tipo de Envío</h5>
-          </div> 
+          </div>
           <div class="custom-control custom-radio">
             <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" required=""
               value="15" checked>
@@ -161,11 +174,11 @@
         <div class="detalle-pagar">
           <div class="box-title">
             <h5>Detalle a Pagar</h5>
-          </div> 
+          </div>
           <div id="total-pagar">
 
           </div>
-          
+
         </div>
         <button type="button" class="btn btn-primary ml-1 btn-comprar">Finaliza compra</button>
       </div>
@@ -199,4 +212,3 @@
 </body>
 
 </html>
-
