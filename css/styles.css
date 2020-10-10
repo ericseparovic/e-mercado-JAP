@@ -618,6 +618,7 @@ input[type="number"] {
 
 #clear-product {
   width: 20px;
+  transform: scale(1.1, 1.1);
 }
 
 .alert-vacio {
@@ -628,4 +629,34 @@ input[type="number"] {
 
 .box-item {
   padding-right: 5px;
+}
+
+.container-number {
+  display: flex;
+}
+
+.image-number {
+  padding: 10px;
+}
+
+.image-number img{
+  width: 30px;
+}
+
+.image-number:active img{
+  width: 30px;
+  transform: scale(1.1, 1.1);
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+
+.box-subTotal {
+  min-width: 150px;
 }

@@ -7,18 +7,18 @@ var items;
 //Funcion que agrupa eventos
 eventListener();
 function eventListener() {
-    //Obtiene datos JSON
+    //Funcion que se ejecuta cuando carga la pagina obtiene datos JSON
     document.addEventListener("DOMContentLoaded", getJSON);
 
-    //Evento que se ejecuta cuando se aumenta o disminuye la cantidad
+    //Funcion que se ejecuta cuando se aumenta o disminuye la cantidad del articulos
     let boxCarrito = document.querySelector("#articles");
-    boxCarrito.addEventListener("change", increaseQuantity);
-    
-    //Evento que se ejecuta cuando se cambia el tipo de envio
-    let typeShipping = document.getElementById('tipo-envio');
-    typeShipping.addEventListener('change', getDateLocalStorage);
+    boxCarrito.addEventListener('click', increaseQuantity);
 
-    //Evento que se ejecuta cuando se realiza clic en boton borrar
+    //Funcion  que se ejecuta cuando se modifica el tipo de envio
+    let typeShipping = document.getElementById('tipo-envio');
+    typeShipping.addEventListener('change', detailToPay);
+
+    //Funcion que se ejecuta cuando se realiza clic en btn borrar articulo del carrito
     boxCarrito.addEventListener('click', clearProductCart)
 }
 
@@ -27,7 +27,7 @@ function getJSON(e) {
     getJSONData(CART).then(function (resultObj) {
         if (resultObj.status === "ok") {
             itemCarrito = resultObj.data;
-            articles = itemCarrito.articles;            
+            articles = itemCarrito.articles;
             //Guarda datos en local storage
             syncUpLocalStorage();
         }
@@ -42,14 +42,41 @@ function showCart(articles) {
     for (let item of articles) {
         //Calcula el subtotal a pagar por producto
         let subTotalItem = getSubTotalItem(item.unitCost, item.count);
-        
+
         itemHTML += ` 
+
         <tr>
             <td>${item.name}</td>
-            <td class="icon-product"><img src="${item.src}" alt=""></td>
-            <td><input name="${item.name}" type="number" min="1" value="${item.count}" id="cantidad"></td>
-            <td><span>${item.currency} </span><span>${subTotalItem}</span></td>
-            <td><a href="#"><img src="img/papelera-de-reciclaje.png" alt="" id="clear-product" name="${item.name}"></td></a>
+            <td class="icon-product">
+                <img src="${item.src}" alt="">
+            </td>
+            <td>
+                <div class="container-number" id="box-count">
+                    <div class="image-number">
+                        <a href="#">
+                            <img name="${item.name}" src="img/anadir.png" id="increase" alt="">
+                        </a>
+                    </div>
+
+                    <div id="box-cantidad">
+                        <input  type="number" min="1" value="${item.count}" id="cantidad">
+                    </div>
+
+                    <div class="image-number">
+                        <a href="#">
+                            <img name="${item.name}" src="img/menos.png" id="decrease" alt="">
+                        </a>
+                    </div>
+                </div>
+            </td>
+            <td class="box-subTotal">
+                <span>${item.currency} </span><span>${subTotalItem}</span>
+            </td>
+            <td>
+                <a href="#">
+                    <img src="img/papelera-de-reciclaje.png" alt="" id="clear-product" name="${item.name}">
+                </a>
+            </td>
         </tr>
         `;
     }
@@ -59,7 +86,7 @@ function showCart(articles) {
     //Funcion que calcula detalle a pagar
     detailToPay();
 
-    //Muestra cantidad de productos en el carrito
+    //Funcion que muestra la cantidad de articulos agregados al carrito
     showCountCart();
 }
 
@@ -69,7 +96,7 @@ function detailToPay() {
     var subTotalToPay = 0;
     var totalShipping = 0;
     var totalToPay = 0;
-        subTotal = 0;
+    subTotal = 0;
 
 
     articles.forEach((item) => {
@@ -118,17 +145,20 @@ function showDetailToPay(subTotalToPay, totalShipping, totalToPay) {
 }
 
 
-//Incrementa la cantidad y crea un nuevo objeto con la cantidad actualizada
+//Funcion que se ejecuta cuando se aumenta o disminuye la cantidad de articulos
 function increaseQuantity(event) {
+    event.preventDefault();
 
-    let quantity = Number(event.target.value);
+    //Obtiene el valor del input
+    let i = valorCount(event);
+
     let product = event.target.name;
 
     //Actualiza la cantidad del producto y se crea un nuevo objeto con la cantidad acutalizada.
     const items = articles.map((item) => {
 
         if (item.name === product) {
-            item.count = quantity;
+            item.count = i;
             return item;
         } else {
             return item;
@@ -137,6 +167,26 @@ function increaseQuantity(event) {
     });
 
     showCart(items);
+}
+
+//Funcion que retora el nuevo valor del input si se modifica la cantidad
+function valorCount(event) {
+    event.preventDefault();
+
+    let boxCount = event.target.parentElement.parentElement.parentElement;
+    let inputCount = boxCount.querySelector('#cantidad');
+    let value = inputCount.getAttribute('value');
+    var i = Number(value);
+
+    if (event.target.id === "increase") {
+        i++;
+    } else if (event.target.id === "decrease") {
+
+        if (i > 1) {
+            i--;
+        }
+    }
+    return i;
 }
 
 
@@ -165,6 +215,7 @@ function getSubTotal(cost) {
 
 //Funcion que retorna el costo de envio a pagar
 function getCostOfShipping(subTotal) {
+
     const inputCosto = document.getElementsByName("publicationType");
 
     for (input of inputCosto) {
@@ -182,22 +233,22 @@ function getTotalToPay(subTotal, shipping) {
 }
 
 //Funcion que guarda los productos agregados al carrtio en el local storage
-function syncUpLocalStorage(){
+function syncUpLocalStorage() {
     localStorage.setItem('cart', JSON.stringify(articles));
     getDateLocalStorage();
 }
 
 //Obtiene datos del localStorage y muestra la cantidad de articulos agregados al carrito
-function getDateLocalStorage(){
+function getDateLocalStorage() {
     let articles = JSON.parse(localStorage.getItem('cart'));
     showCart(articles);
 }
 
 //Eliminar producto del carrito
-function clearProductCart(event){
+function clearProductCart(event) {
     event.preventDefault();
 
-    if(event.target.id === 'clear-product'){
+    if (event.target.id === 'clear-product') {
         articles = articles.filter(item => item.name !== event.target.name);
     }
 
@@ -205,13 +256,13 @@ function clearProductCart(event){
 }
 
 //Muestra cantidad de productos
-function showCountCart(){
+function showCountCart() {
     let badgeCount = 0;
 
     articles.forEach(item => {
         badgeCount += item.count;
     });
-  
+
     localStorage.setItem('cantidad', JSON.stringify(badgeCount));
 
     document.getElementById('badge-count').innerHTML = badgeCount;
