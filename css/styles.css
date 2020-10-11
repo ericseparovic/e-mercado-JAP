@@ -548,6 +548,10 @@ label {
   border-radius: 20px;
 }
 
+.form-envio{
+  padding-left: 50px;
+}
+
 .forma-pago {
   -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
