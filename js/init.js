@@ -42,95 +42,95 @@ var getJSONData = function (url) {
 
 
 
-  //Función que ejecuta el login.
-  function redirectLogin() {
+//Función que ejecuta el login.
+function redirectLogin() {
 
-    let url = location.href;
-    let urlLogin = url.slice(0, -10) + "login.html";
+  let url = location.href;
+  let urlLogin = url.slice(0, -10) + "login.html";
 
-    if (localStorage.getItem('email') == null && localStorage.getItem("password") == null){
-      if (location.href !== urlLogin){
-        location.href = "login.html"
-      }
+  if (localStorage.getItem('email') == null && localStorage.getItem("password") == null) {
+    if (location.href !== urlLogin) {
+      location.href = "login.html"
     }
   }
+}
 
-  redirectLogin();
+redirectLogin();
 
 
-  //Función que se ejecuta cuando se raliza clic en Cerrar sesión
-  let buttonSignOff = document.getElementById("sign-off");
-  buttonSignOff.addEventListener("click", signOff);
+//Función que se ejecuta cuando se raliza clic en Cerrar sesión
+let buttonSignOff = document.getElementById("sign-off");
+buttonSignOff.addEventListener("click", signOff);
 
-  function signOff() {
+function signOff() {
+  localStorage.clear();
+  location.reload();
+}
+
+//Funcion que ejecuta el nombre de usuario en pantalla
+
+const userName = document.getElementById("username");
+
+function user() {
+  if (localStorage.getItem('email') != null || localStorage.getItem != undefined)
+    userName.innerHTML = `<span id="username" class="user-name">` + localStorage.getItem('email') + `</span>`
+}
+user();
+
+
+// Funcion para iniciar sesion con google.
+function onSignIn(googleUser) {
+  // Useful data for your client-side scripts:
+  var profile = googleUser.getBasicProfile();
+
+  const email = profile.getEmail();
+  const password = "password";
+
+  localStorage.setItem("email", email);
+  localStorage.setItem("password", "password");
+  /*Redirecciona a index.html*/
+  window.location.href = "index.html";
+}
+
+
+//Funcion que se ejecuta cuando se realiza clic en boton cerrar sesion
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
     localStorage.clear();
     location.reload();
-  }
+  });
+}
 
-  //Funcion que ejecuta el nombre de usuario en pantalla
-
-  const userName = document.getElementById("username");
-
-  function user() {
-    if (localStorage.getItem('email') != null || localStorage.getItem != undefined)
-      userName.innerHTML = `<span id="username" class="user-name">` + localStorage.getItem('email') + `</span>`
-  }
-  user();
-
-
-  // Funcion para iniciar sesion con google.
-  function onSignIn(googleUser) {
-    // Useful data for your client-side scripts:
-    var profile = googleUser.getBasicProfile();
-
-    const email = profile.getEmail();
-    const password = "password";
-
-    localStorage.setItem("email", email);
-    localStorage.setItem("password", "password");
-    /*Redirecciona a index.html*/
-    window.location.href = "index.html";
-  }
-
-
-  //Funcion que se ejecuta cuando se realiza clic en boton cerrar sesion
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-    localStorage.clear();
-    location.reload();
-      });
-   }
-
-   function onLoad() {
-    gapi.load('auth2', function () {
-      gapi.auth2.init();
-    });
-    }
+function onLoad() {
+  gapi.load('auth2', function () {
+    gapi.auth2.init();
+  });
+}
 
 //Funcion que llama a la API productos, para mostrar los productos relacionados en product-info.html
-    var getJSONDataProductRelated = function (url) {
-      var result = {};
-      return fetch(url)
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw Error(response.statusText);
-          }
-        })
-        .then(function (response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
-        })
-        .catch(function (error) {
-          result.status = 'error';
-          result.data = error;
-          return result;
-        });
-    }
+var getJSONDataProductRelated = function (url) {
+  var result = {};
+  return fetch(url)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw Error(response.statusText);
+      }
+    })
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
+    })
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      return result;
+    });
+}
 
 
 //Funcion que llama a la API comentarios para ser mostrados en product-info.html
@@ -157,9 +157,9 @@ var getJSONDataComments = function (url) {
 }
 
 
-//Muestra cantidad de productos
+//Muestra cantidad de productos agregados al carrito
 showCount()
-function showCount(){
+function showCount() {
   let cantidad = JSON.parse(localStorage.getItem('cantidad'));
   document.getElementById('badge-count').innerHTML = cantidad;
 }
