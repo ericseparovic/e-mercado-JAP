@@ -79,23 +79,22 @@ function showProductsList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(products.cost) <= maxCount))){
 
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + products.imgSrc + `" alt="` + products.description + `" class="img-thumbnail">
+            
+            <div class="col-md-6 col-lg-4 col-xl-3 pb-4">
+            <div class="card box-product" id="cardProduct">
+            <a href="product-info.html" class="custom-card">
+                    <img class="card-img-top" id="img-product" src="${products.imgSrc}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${products.name}</h5>
+                        <p class="font-weight-bold text-info">${products.currency}: ${products.cost}</p>
+                        <p class="small">${products.soldCount} Articulos</p>
+                        <p>${products.description}</p>
                     </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">`+ products.name + " - " + products.currency + " " + products.cost +`</h4>
-                            <small class="text-muted">` + products.soldCount + ` artículos</small>
-                        </div>
-                        <p class="mb-1">` + products.description + `</p>
-                    </div>
+                </a>
                 </div>
-            </a>
+            </div>
             `
         }
-
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }

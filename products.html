@@ -1,101 +1,146 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>eMercado - Todo lo que busques está aquí</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <!--Google-->
-    <meta name="google-signin-client_id" content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
-  </head>
-  <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block nav" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
-        <div class="container-login">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <!--Google-->
+  <meta name="google-signin-client_id"
+    content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
+</head>
+
+<body>
+  <!--Inicia contenedor menu de navegacion -->
+  <nav class="navbar navbar-expand-xl navbar navbar-dark bg-dark">
+    <div class="container">
+      <!-- Inicia contenedor icono web -->
+      <a id="navbar-brand" class="navbar-brand" href="index.html">
+        <img src="img/login.png" alt="icono ecommerce">
+      </a>
+      <!-- Fin contenedor icono web -->
+
+      <!-- Inicia contenedor boton hamburguesa -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Fin contenedor boton hamburguesa -->
+
+      <!-- Inicia contenedor enlaces -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link nav" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="sell.html">Vender</a>
+          </li>
+          <!-- Inicio contenedor nombre de usuario -->
+          <li class="nav-item  dropdown">
+            <!-- Inicio boton dropdown -->
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <span id="username" class="user-name"></span>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="cart.html"><img src="img/carrito-de-compras.png" alt=""
-                  class="icon-login"><span class="box-item">Mi Carrito</span><span class="badge badge-secondary"
-                  id="badge-count"></span></a>
-              <a class="dropdown-item" href="my-profile.html"><img src="img/usuario.png" alt="" class="icon-login"><span
-                  class="box-item">Perfil</span></a>
+            </a>
+            <!-- Fin boton dropdown -->
+
+            <!-- Inicio contenedor elementos carrito, mi perfil, boton salir -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="cart.html">
+                <img src="img/carrito-de-compras.png" alt="" class="icon-login"><span class="box-item">Mi
+                  Carrito</span><span class="badge badge-success" id="badge-count"></span>
+              </a>
+              <a class="dropdown-item" href="my-profile.html">
+                <img src="img/usuario.png" alt="" class="icon-login"><span class="box-item">Perfil</span>
+              </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt="" id="sign-off"
-                  class="icon-login"><span class="box-item">Salir</span></a>
+              <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt=""
+                  id="sign-off" class="icon-login"><span class="box-item">Salir</span>
+              </a>
+            </div>
+            <!-- Fin contenedor elementos carrito, mi perfil, boton salir -->
+          </li>
+          <!-- Fin contenedor nombre de usuario -->
+        </ul>
+      </div>
+    </div>
+    <!-- Fin contenedor enlaces -->
+  </nav>
+  <!--Fin menu de navegacion -->
+
+
+  <!-- Inicia contenedor productos -->
+  <main role="main" class="pb-5 container">
+      <!-- Inicio contenedor titulo -->
+      <div class="text-center p-5 boxTitle">
+        <h2>Productos</h2>
+        <p class="lead p-4">Verás aquí todas los productos del sitio.</p>
+      </div>
+      <!-- Fin contenedor titulo -->
+      <div class="row">
+        <div class="col-sm-12 col-md-6 mb-4 container-search">
+          <form action="" id="form-search">
+            <input type="search" id="search" class="search form-control mr-sm-2" placeholder="Buscar productos">
+          </form>
+        </div>
+        <div class="col-sm-12 col-md-6 text-center">
+          <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <label class="btn btn-light" id="sortByCountMax">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Mayor
+              Precio.
+            </label>
+            <label class="btn btn-light" id="sortByCountMin">
+              <input type="radio" name="options" autocomplete="off"><i
+                class="fas fa-sort-amount-down-alt mr-1"></i>Menor
+              Precio.
+            </label>
+            <label class="btn btn-light" id="sortByRelevance">
+              <input type="radio" name="options" autocomplete="off"><i
+                class="fas fa-sort-amount-down mr-1"></i>Relevancia.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-end pb-5">
+        <div class="col-md-6"></div>
+        <div class="col-md-6 col-sm-12 mb-1 container">
+          <div class="row container p-0 m-0 boxFiltroPrecio">
+            <div class="col col-lg-3">
+              <input class="form-control" type="text" placeholder="$min." id="rangeFilterCountMin">
+            </div>
+            <div class="col col-lg-3">
+              <input class="form-control" type="text" placeholder="$máx." id="rangeFilterCountMax">
+            </div>
+            <div class="col col-lg-3">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </nav>
-    <main role="main" class="pb-5">
-      <div class="text-center p-4">
-          <h2>Productos</h2>
-          <p class="lead">Verás aquí todas los productos del sitio.</p>
-      </div>
-      <div class="container">
-          <div class="row">
-              <div class="col text-right">
-                  <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-                      <label class="btn btn-light" id="sortByCountMax" >
-                          <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Mayor Precio.
-                      </label>
-                      <label class="btn btn-light" id="sortByCountMin" >
-                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down-alt mr-1"></i>Menor Precio.
-                      </label>
-                      <label class="btn btn-light" id="sortByRelevance" >
-                        <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia.
-                      </label>
-                  </div>
-                  <div class="container-search">
-                    <form action="" id="form-search">
-                        <input type="search" id="search" class="search" placeholder="Buscar productos">
-                    </form>   
-                  </div>
-              </div>
-          </div>
-          <div class="row justify-content-end">
-            <div class="col-md-6"></div>
-              <div class="col-md-6 col-sm-12 mb-1 container">
-                <div class="row container p-0 m-0">
-                  <div class="col">
-                    <p class="font-weight-normal text-right my-2">Precio.</p>
-                  </div>
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="min." id="rangeFilterCountMin">
-                  </div>
-                  <div class="col">
-                    <input class="form-control" type="text" placeholder="máx." id="rangeFilterCountMax">
-                  </div>
-                  <div class="col-3 p-0">
-                    <div class="btn-group" role="group">
-                      <button class="btn btn-light btn-block" id="rangeFilterCount">Filtrar</button>
-                      <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="list-group" id="cat-list-container">
-              </div>
-          </div>
+      <div class="row" id="cat-list-container">
+
       </div>
   </main>
+  <!-- Fin contenedor productos -->
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
@@ -105,11 +150,19 @@
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/products.js"></script>
-    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
-  </body>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/products.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+</body>
+
 </html>

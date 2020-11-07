@@ -62,6 +62,7 @@ redirectLogin();
 let buttonSignOff = document.getElementById("sign-off");
 buttonSignOff.addEventListener("click", signOff);
 
+
 function signOff() {
   localStorage.clear();
   location.reload();

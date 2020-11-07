@@ -1,3 +1,16 @@
+body {
+  background: linear-gradient(to bottom, #d5dee7 0%, #e8ebf2 50%, #e2e7ed 100%),
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.02) 50%,
+      rgba(255, 255, 255, 0.02) 61%,
+      rgba(0, 0, 0, 0.02) 73%
+    ),
+    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
+  background-blend-mode: normal, color-burn;
+  background-size: cover;
+}
+
 .jumbotron,
 .card-body,
 .container,
@@ -68,6 +81,11 @@ footer p {
 
 .site-header .dropdown-menu a {
   color: black;
+}
+
+#navbarDropdownMenuLink {
+  background-color: #8b1b4c;
+  border-radius: 1rem;
 }
 
 .dropzone {
@@ -171,7 +189,7 @@ a.custom-card:hover {
   border-radius: 25px;
 }
 
-input {
+.inputLogin {
   width: 100%;
   height: 50px;
   border: 1px solid #ccc;
@@ -181,10 +199,9 @@ input {
   outline: 0px;
 }
 
-input[type="password"]:focus,
-input[type="email"]:focus {
-  border-color: #d61c6c;
-  box-shadow: 0.8px 0.8px 0.8px 0.8px #d61c6c inset;
+.inputLogin:focus {
+  border-color: #8b1b4c;
+  box-shadow: 0.8px 0.8px 0.8px 0.8px #ccc inset;
   border-radius: 25px;
   outline: 0px;
 }
@@ -195,14 +212,19 @@ input[type="email"]:focus {
   margin: 0px;
 }
 
-input[type="button"] {
-  background-color: #d61c6c;
+#button-login {
+  background-color: #811c48;
   color: white;
-  font-size: 22px;
+  font-size: 18px;
   text-align: center;
+  width: 100%;
+  height: 50px;
+  border: 1px solid rgb(92, 28, 28);
+  border-radius: 25px;
+  outline: 0px;
 }
 
-input[type="button"]:active {
+#button-login:active {
   box-shadow: 2px 6px 12px 2px rgba(0, 0, 0, 0.41) inset;
 }
 
@@ -228,21 +250,31 @@ input[type="button"]:active {
   width: 20px;
 }
 
-.box-item {
-  padding-left: 10px;
-}
 /*Fin estilos mi perfil*/
 
 /*Inicio estilos navegacion*/
-.nav {
+.navbar-brand img {
+  border-radius: 0.5rem;
+  width: 120px;
+}
+
+.nav-link {
   font-weight: bold;
+  color: white !important;
 }
 
 .nav:hover {
-  transform: scale(1.2, 1.3);
+  /* transform: scale(1.2, 1.2); */
   text-decoration: none;
   font-weight: bold;
-  color: #d61c6c;
+  color: #8b1b4c !important;
+  background-color: #ccc;
+  border-radius: 1rem;
+}
+
+.nav-item {
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 /*Fin estilos navegacion*/
 
@@ -263,23 +295,135 @@ input[type="button"]:active {
 h4 {
   font-weight: bold;
 }
+
+.card-title {
+  color: rgba(0, 0, 0, 0.692);
+}
+
+
+@media (max-width: 576px) {
+  #sortByCountMax,
+  #sortByCountMin,
+  #sortByRelevance {
+    font-size: 0.7rem;
+  }
+
+  .boxFiltroPrecio p {
+    font-size: 0.8rem;
+  }
+
+  .boxFiltroPrecio input {
+    font-size: 0.8rem;
+  }
+
+  .boxFiltroPrecio button {
+    font-size: 0.8rem;
+  }
+
+  .boxTitle h2 {
+    background-color: #354f52bb;
+    color: white;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+}
+
+@media (min-width: 576px) {
+  #sortByCountMax,
+  #sortByCountMin,
+  #sortByRelevance {
+    font-size: 0.7rem;
+  }
+
+  .boxFiltroPrecio p {
+    font-size: 0.8rem;
+  }
+
+  .boxFiltroPrecio input {
+    font-size: 0.8rem;
+  }
+
+  .boxFiltroPrecio button {
+    font-size: 0.8rem;
+  }
+  }
+
+
+  .boxTitle h2 {
+    background-color: #354f52bb;
+    color: white;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+
+
+
+@media (min-width: 992px) {
+  #sortByCountMax,
+  #sortByCountMin,
+  #sortByRelevance {
+    font-size: 0.9rem;
+  }
+
+  .boxFiltroPrecio p {
+    font-size: 1rem;
+  }
+
+  .boxFiltroPrecio input {
+    font-size: 1rem;
+  }
+
+  .boxFiltroPrecio button {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+
+  #sortByCountMax,
+  #sortByCountMin,
+  #sortByRelevance {
+    font-size: 0.9rem;
+  }
+
+  .boxFiltroPrecio p {
+    font-size: 1rem;
+  }
+
+  .boxFiltroPrecio input {
+    font-size: 1rem;
+  }
+
+  .boxFiltroPrecio button {
+    font-size: 1rem;
+  }
+}
+
+
+#cardProduct {
+  min-height: 475px;
+}
+
+#cardProduct p {
+  font-size: 1rem;
+}
+
+
 /*Fin estilos generales product.html*/
 
 /*Inicio estilos buscador*/
-.container-search {
-  width: 50%;
-  float: left;
-  margin-bottom: 30px;
-}
-
-.search {
-  height: 35px;
-  width: 100%;
-}
 
 .search:focus {
-  border: 1px solid #d61c6c;
-  box-shadow: 1px 1px 1px 1px #d61c6c inset;
+  border: 1px solid #811c48;
+  box-shadow: 1px 1px 1px 1px #811c48 inset;
 }
 
 #result-not-found {
@@ -291,7 +435,7 @@ h4 {
 /*Inicio estilos botones filtro*/
 .btn-light:hover {
   color: white;
-  background-color: #d61c6c;
+  background-color: #811c48;
   border-color: #dae0e5;
   font-weight: bold;
 }
@@ -299,13 +443,11 @@ h4 {
 .btn-light {
   color: black;
   border-color: #dae0e5;
-  font-weight: bold;
-  border-radius: 20px;
 }
 
 .btn-light:active {
   color: white;
-  background-color: #d61c6c;
+  background-color: #811c48;
   border-color: #dae0e5;
   font-weight: bold;
 }
@@ -332,17 +474,14 @@ h3 {
   height: 100px;
 }
 
-.card {
-  margin-right: 20px;
-}
-
 .btn-primary {
-  background-color: #d61c6c;
+  background-color: #811c48;
   border: none;
+  font-weight: bold;
 }
 
 .btn-primary:hover {
-  background-color: #8b1b4c;
+  background-color: #b95882;
   border: none;
 }
 
@@ -359,6 +498,29 @@ h3 {
   padding: 20px;
 }
 /*Fin Estilos generales producto-info.html*/
+
+/*Inicio estilos producto.html*/
+
+.list-group {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 1rem;
+}
+
+.box-product {
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  border-radius: 20px;
+  padding: 0.4rem;
+}
+
+.box-product img {
+  border-radius: 20px 20px 0px 0px;
+}
+
+/*Fin estilos producto.html*/
 
 /*Inico estilos comentarios*/
 .box-comment {
@@ -448,32 +610,19 @@ label {
   unicode-bidi: bidi-override;
 }
 
-label:hover,
+/* label:hover,
 label:hover ~ label {
   color: orange;
 }
 
 input[type="radio"]:checked ~ label {
   color: orange;
-}
+} */
 
 h5 {
   font-weight: bold;
 }
 /*Fin estilos calificacion*/
-
-body {
-  background: linear-gradient(to bottom, #d5dee7 0%, #e8ebf2 50%, #e2e7ed 100%),
-    linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.02) 50%,
-      rgba(255, 255, 255, 0.02) 61%,
-      rgba(0, 0, 0, 0.02) 73%
-    ),
-    linear-gradient(33deg, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%);
-  background-blend-mode: normal, color-burn;
-  background-size: cover;
-}
 
 /* Inicio estilos carrito*/
 
@@ -497,9 +646,7 @@ label {
   box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
   background-color: white;
 }
-/*Fin estilos carrito */
 
-/*Inicio estilos carrito*/
 .box-mi-carrito {
   display: flex;
   justify-content: space-between;
@@ -572,7 +719,7 @@ label {
   width: 100px;
 }
 
-#cantidad {
+.cantidad {
   width: 60px;
   border-radius: 4px;
 }
@@ -612,10 +759,6 @@ label {
   height: 50px;
   padding: 10px;
   text-align: center;
-}
-
-.box-item {
-  padding-right: 5px;
 }
 
 .container-number {
@@ -701,7 +844,6 @@ input[type="number"] {
   visibility: hidden;
 }
 
-
 .spinner-grow {
   width: 8rem;
   height: 8rem;
@@ -721,5 +863,109 @@ input[type="number"] {
   visibility: visible;
   text-align: center;
   visibility: hidden;
+}
+
+/*Fin estilos carrito */
+
+/*Inicia Estilos mi perfil*/
+
+.containerMyPerfil {
+  margin: 0px auto;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  background-color: white;
+  padding: 50px 50px 20px 50px;
+  margin-bottom: 60px;
+  border-radius: 20px;
+  width: 80%;
+  height: auto;
+}
+
+
+
+.boxTitle h2 {
+  background-color: #354f52bb;
+  color: white;
+  border-radius: 1rem;
+  -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+@media (max-width: 576px) {
+  .boxTitle h2 {
+    font-size: 1.5rem;
+    background-color: #354f52bb;
+    color: white;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0, 0, 0, 0.75);
+    font-weight: bold;
+    padding: 1rem 0;
+  }
+
+  .boxTitle p {
+    font-size: 1rem;
+  }
+}
+
+
+.iconEditar {
+  width: 1.5rem !important; 
+}
+
+
+.iconEditar:active {
+  transform: scale(1.2, 1.2);
+}
+
+.iconEditar:hover {
+  cursor: pointer;
+}
+
+.box-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.alertData p{
+  color: red;
+  text-align: center;
+}
+
+
+.boxPerfil {
+  display: flex;
+  justify-content:space-between;
+}
+
+
+
+.boxAvatar {
+  width: 30%;
+}
+
+.boxDatos {
+  width: 60%;
+}
+
+#avatar {
+  cursor: pointer;
+  width: 12rem;
+}
+
+#btnAgregarAvatar img{
+  width: 2rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.modal-body label {
+  font-size: 15px;
 }
 

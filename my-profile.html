@@ -32,56 +32,309 @@
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
   <!--Google-->
-  <meta name="google-signin-client_id" content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
+  <meta name="google-signin-client_id"
+    content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block nav" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
-      <div class="container-login">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <span id="username" class="user-name"></span>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="cart.html"><img src="img/carrito-de-compras.png" alt=""
-                class="icon-login"><span class="box-item">Mi Carrito</span><span class="badge badge-secondary"
-                id="badge-count"></span></a>
-            <a class="dropdown-item" href="my-profile.html"><img src="img/usuario.png" alt="" class="icon-login"><span
-                class="box-item">Perfil</span></a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt="" id="sign-off"
-                class="icon-login"><span class="box-item">Salir</span></a>
+
+
+   <!--Inicia contenedor menu de navegacion -->
+   <nav class="navbar navbar-expand-xl navbar navbar-dark bg-dark">
+    <div class="container">
+      <!-- Inicia contenedor icono web -->
+      <a id="navbar-brand" class="navbar-brand" href="index.html">
+        <img src="img/login.png" alt="icono ecommerce">
+      </a>
+      <!-- Fin contenedor icono web -->
+
+      <!-- Inicia contenedor boton hamburguesa -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Fin contenedor boton hamburguesa -->
+
+      <!-- Inicia contenedor enlaces -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link nav" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="sell.html">Vender</a>
+          </li>
+          <!-- Inicio contenedor nombre de usuario -->
+          <li class="nav-item  dropdown">
+            <!-- Inicio boton dropdown -->
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span id="username" class="user-name"></span>
+            </a>
+            <!-- Fin boton dropdown -->
+
+            <!-- Inicio contenedor elementos carrito, mi perfil, boton salir -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="cart.html">
+                <img src="img/carrito-de-compras.png" alt="" class="icon-login"><span class="box-item">Mi
+                  Carrito</span><span class="badge badge-success" id="badge-count"></span>
+              </a>
+              <a class="dropdown-item" href="my-profile.html">
+                <img src="img/usuario.png" alt="" class="icon-login"><span class="box-item">Perfil</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt=""
+                  id="sign-off" class="icon-login"><span class="box-item">Salir</span>
+              </a>
+            </div>
+            <!-- Fin contenedor elementos carrito, mi perfil, boton salir -->
+          </li>
+          <!-- Fin contenedor nombre de usuario -->
+        </ul>
+      </div>
+    </div>
+    <!-- Fin contenedor enlaces -->
+  </nav>
+  <!--Fin menu de navegacion -->
+
+
+  <div class="container">
+    <div class="text-center p-5 boxTitle">
+      <h2>Mi perfil</h2>
+      <p class="lead p-4">Verás aquí todas tus datos personales.</p>
+    </div>
+
+    <div class="alert alert-success alert-dismissible fade show d-none" role="alert" id="alertDataConfirm">
+      Los datos se han guardado correctamente.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="containerMyPerfil">
+      <div class="box-title">
+        <h5>Datos</h5>
+      </div>
+      <!--Inicia contenedor de alertas-->
+      <div class="row" id="alertData">
+        <div class="col alertData d-none" id="alertNombre">
+          <p>Ingrese Nombre</p>
+        </div>
+        <div class="col alertData d-none" id="alertEdad">
+          <p>Ingrese Edad</p>
+        </div>
+        <div class="col alertData d-none" id="alertCorreo">
+          <p>Ingrese Correo</p>
+        </div>
+        <div class="col alertData d-none" id="alertTelefono">
+          <p>Ingrese Telefono</p>
+        </div>
+      </div>
+      <!--Fin contenedor de alertas-->
+
+      <div class="boxPerfil">
+        <!--Inicio contenedor Foto de perfil-->
+        <div class="boxAvatar text-center">
+          <div id="contenedorAvatar" class="text-center" id="btnAgregarAvatar">
+            <img id="avatar" data-toggle="modal" data-target="#modalAvatar" class="card-img-top" id="imgPerfil" alt="Clic aqui para cambiar foto" border="0" src="" data-toggle="tooltip" data-placement="top" title="Clic para cambiar foto">
           </div>
+
+          <!-- src=" https://i.ibb.co/q9Y24tv/perfil-IMG.png" -->
+        </div>
+        <!--Fin contenedor Foto de perfil-->
+
+        <!--Inicio Contenedor formulario datos personales-->
+        <div class="boxDatos">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <th scope="row">Nombre:</th>
+                <td id="fullName"></td>
+                <td><img class="iconEditar" data-toggle="modal" data-target="#modalNombre" src="img/edit.svg" alt="">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Edad:</th>
+                <td id="age"></td>
+                <td><img class="iconEditar" data-toggle="modal" data-target="#modalEdad" src="img/edit.svg" alt=""></td>
+              </tr>
+              <tr>
+                <th scope="row">Correo:</th>
+                <td id="email"></td>
+                <td><img class="iconEditar" data-toggle="modal" data-target="#modalCorreo" src="img/edit.svg" alt="">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Teléfono:</th>
+                <td id="numeroTelefono"></td>
+                <td><img class="iconEditar" data-toggle="modal" data-target="#modalTelefono" src="img/edit.svg" alt="">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="button" id="btnGuardarDatos" class="btn btn-primary btn-sm">Guardar Cambios</button>
+        </div>
+        <!--Fin Contenedor formulario datos personales-->
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Inicia Modal nombre -->
+  <div class="modal fade bd-example-modal-sm" id="modalNombre" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">Ingrese Nombre y Apellido</h6>
+        </div>
+        <div class="modal-body">
+          <div class="p-2">
+            <label for="inputPrimerNombre">Primer Nombre</label>
+            <input type="text" class="form-control" id="inputPrimerNombre">
+            <div class="invalid-feedback">
+              Debe ingresar nombre.
+            </div>
+          </div>
+          <div class="p-2">
+            <label for="input">Segundo Nombre</label>
+            <input type="text" class="form-control" id="inputSegundoNombre">
+          </div>
+          <div class="p-2">
+            <label for="inputPrimerApellido">Primer Apellido</label>
+            <input type="text" class="form-control" id="inputPrimerApellido">
+            <div class="invalid-feedback">
+              Debe ingresar apellido.
+            </div>
+          </div>
+          <div class="p-2">
+            <label for="inputSegundoApellido">Segundo Apellido</label>
+            <input type="text" class="form-control" id="inputSegundoApellido">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnConfirmName" class="btn btn-primary">Confirmar</button>
         </div>
       </div>
     </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  </div>
+  <!-- Fin Modal nombre -->
+
+  <!-- Inicia Modal edad -->
+  <div class="modal fade bd-example-modal-sm" id="modalEdad" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">Ingrese Edad</h6>
+        </div>
+        <div class="modal-body">
+          <div>
+            <input type="number" class="form-control" id="inputEdad">
+            <div class="invalid-feedback">
+              La edad debe ser un numero.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnConfirmAge" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
     </div>
   </div>
+  <!-- Fin Modal edad -->
+
+  <!-- Inicia Modal correo -->
+  <div class="modal fade bd-example-modal-sm" id="modalCorreo" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">Ingrese Correo</h6>
+        </div>
+        <div class="modal-body">
+          <div>
+            <input type="text" class="form-control" id="inputCorreo">
+            <div class="invalid-feedback">
+              Debe ingresar un email valido.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnConfirmEmail" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal correo -->
+
+  <!-- Inicia Modal Telefono -->
+  <div class="modal fade bd-example-modal-sm" id="modalTelefono" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">Ingrese Teléfono</h6>
+        </div>
+        <div class="modal-body">
+          <div>
+            <input type="number" class="form-control" id="inputTelefono" placeholder="Ingrese Celular">
+            <div class="invalid-feedback">
+              Debe ingresar un celular valido.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnConfirmNumber" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal Telefono -->
+
+  <!-- Inicia Modal avatar -->
+  <div class="modal fade bd-example-modal-sm" id="modalAvatar" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">Ingrese URL de la imagen</h6>
+        </div>
+        <div class="modal-body">
+          <div>
+            <input type="text" class="form-control" id="inputAvatar" placeholder="URL">
+            <div class="invalid-feedback">
+              Ingrese url valida.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" id="btnConfirmAvatar" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal Avatar -->
+
+
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -90,6 +343,7 @@
       <div></div>
     </div>
   </div>
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>

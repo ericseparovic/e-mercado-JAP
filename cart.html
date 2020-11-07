@@ -44,250 +44,302 @@
     </div>
   </div>
 
-  <div id="opacityModal"> 
-    <!--Inicia menu de navegacion--> 
-    <nav class="site-header sticky-top py-1 bg-dark">
-        <div class="container d-flex flex-column flex-md-row justify-content-between">
-          <a class="py-2 d-none d-md-inline-block nav" href="index.html">Inicio</a>
-          <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
-          <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
-          <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
-          <div class="container-login">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div id="opacityModal">
+    <!--Inicia contenedor menu de navegacion -->
+    <nav class="navbar navbar-expand-xl navbar navbar-dark bg-dark">
+      <div class="container">
+        <!-- Inicia contenedor icono web -->
+        <a id="navbar-brand" class="navbar-brand" href="index.html">
+          <img src="img/login.png" alt="icono ecommerce">
+        </a>
+        <!-- Fin contenedor icono web -->
+
+        <!-- Inicia contenedor boton hamburguesa -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Fin contenedor boton hamburguesa -->
+
+        <!-- Inicia contenedor enlaces -->
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item">
+              <a class="nav-link nav" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav" href="categories.html">Categorías</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav" href="products.html">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav" href="sell.html">Vender</a>
+            </li>
+            <!-- Inicio contenedor nombre de usuario -->
+            <li class="nav-item  dropdown">
+              <!-- Inicio boton dropdown -->
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
                 <span id="username" class="user-name"></span>
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="cart.html"><img src="img/carrito-de-compras.png" alt=""
-                    class="icon-login"><span class="box-item">Mi Carrito</span><span class="badge badge-secondary"
-                    id="badge-count"></span></a>
-                <a class="dropdown-item" href="my-profile.html"><img src="img/usuario.png" alt=""
-                    class="icon-login"><span class="box-item">Perfil</span></a>
+              </a>
+              <!-- Fin boton dropdown -->
+
+              <!-- Inicio contenedor elementos carrito, mi perfil, boton salir -->
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="cart.html">
+                  <img src="img/carrito-de-compras.png" alt="" class="icon-login"><span class="box-item">Mi
+                    Carrito</span><span class="badge badge-success" id="badge-count"></span>
+                </a>
+                <a class="dropdown-item" href="my-profile.html">
+                  <img src="img/usuario.png" alt="" class="icon-login"><span class="box-item">Perfil</span>
+                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt=""
-                    id="sign-off" class="icon-login"><span class="box-item">Salir</span></a>
+                    id="sign-off" class="icon-login"><span class="box-item">Salir</span>
+                </a>
               </div>
-            </div>
-          </div>
+              <!-- Fin contenedor elementos carrito, mi perfil, boton salir -->
+            </li>
+            <!-- Fin contenedor nombre de usuario -->
+          </ul>
         </div>
-      </nav>
-      <!--Fin menu de navegacion-->
+      </div>
+      <!-- Fin contenedor enlaces -->
+    </nav>
+    <!--Fin menu de navegacion -->
 
-      <!--Inicia contenedor elemetnos carrito-->
-      <div class="container">
-        <div class="text-center p-4 pb-5">
-          <h2>Mi Carrito</h2>
-          <p class="lead">Verás aquí los productos agregados al carrito</p>
-        </div>
-        <div class="box-mi-carrito">
-          <div class="box-70">
+    <!--Inicia contenedor principal-->
+    <div class="container">
+      <!-- Inicio contenedor titulo -->
+      <div class="text-center p-5 boxTitle">
+        <h2>Mi Carrito</h2>
+        <p class="lead p-4">Verás aquí los productos agregados al carrito.</p>
+      </div>
+      <!-- Fin contenedor titulo -->
 
-            <div class="carrito">
-              <div class="box-title">
-                <h5>Articulos en el Carrito</h5>
-              </div>
-              <div class="invalid-count">
-                Ingrese una cantidad valida!
-              </div>
-              <table class="table table-articulos">
-                <thead>
-                  <tr>
-                    <th scope="col">Producto</th>
-                    <th scope="col"></th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Subtotal</th>
-                  </tr>
-                </thead>
-                <tbody id="articles">
-                </tbody>
-              </table>
+
+      <!--Inicia contenedor elementos carrito-->
+      <div class="box-mi-carrito">
+        <!--Inicia contenedor carrito, datos de envio, forma de pago-->
+        <div class="box-70">
+          <!--Inicio box Carrito-->
+          <div class="carrito">
+            <div class="box-title">
+              <h5>Articulos en el Carrito</h5>
             </div>
-            <div class="datos-envio">
-              <div class="box-title">
-                <h5>Datos de Envío</h5>
-              </div>
-              <div class="form-envio">
-                <form id="form-date-envio" class="needs-validation">
-                  <div class="form-row">
-                    <div class="form-group col-5">
-                      <label for="inputAddress">Calle</label>
-                      <input type="text" class="form-control" id="inputCalle" placeholder="Ingrese calle">
-                      <div class="invalid-feedback">
-                        Ingrese nombre de la calle
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="inputAddress2">Número</label>
-                      <input type="number" min="1" class="form-control" id="inputPuerta" placeholder="n° de puerta">
-                      <div class="invalid-feedback">
-                        Ingrese numero de puerta
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-group col-md-5">
-                      <label for="inputCity">Esquina</label>
-                      <input type="text" class="form-control" id="inputEsquina" placeholder="Ingrese esquina">
-                      <div class="invalid-feedback">
-                        Ingrese la esquina
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            <div class="invalid-count">
+              Ingrese una cantidad valida!
             </div>
-            <div class="forma-pago">
-              <div class="box-title">
-                <h5>Forma de Pago</h5>
-              </div>
-              <p>Seleccione medio de pago</p>
-              <!-- Button trigger modal -->
-              <div class="boxSeleccionarPago">
-                <div>
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Seleccionar
-                  </button>
-                </div>
-                <div id="pagoSeleccionado"></div>
-                <div class="invalid-pay">
-                  Debe seleccionar medio de pago!
-                </div>
-              </div>
-
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <form id="box-modal" class="needs-validation">
-                        <div class="custom-control custom-radio">
-                          <input id="tarjetaCredito" type="radio" class="custom-control-input tipoPagoCredito typePay"
-                            name="tipoDePago" value="credito">
-                          <label class="custom-control-label" for="tarjetaCredito">Tarjeta de Credito</label>
-                          <div class="invalid-feedback">
-                            Eliga Tipo de Pago
-                          </div>
-                        </div>
-                        <fieldset id="card">
-                          <div class="row pb-3 pt-3">
-                            <div class="col">
-                              <input type="number" min="1" id="numeroTarjeta" class="form-control form-pay tarjeta"
-                                placeholder="Numero Tarjeta">
-                              <div class="invalid-feedback">
-                                Ingrese Numero de Tarjeta
-                              </div>
-                            </div>
-                            <div class="col">
-                              <input type="number" min="1" class="form-control form-pay tarjeta" id="codigoSeguridad"
-                                placeholder="Cod Seguridad">
-                              <div class="invalid-feedback">
-                                Ingrese Codigo de Seguridad
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row pb-3">
-                            <div class="col">
-                              <input type="date" class="form-control form-pay tarjeta" id="fechaVencimiento"
-                                placeholder="Fecha de Vencimiento">
-                              <div class="invalid-feedback">
-                                Ingrese Fecha de Vencimiento
-                              </div>
-                            </div>
-                          </div>
-                        </fieldset>
-                        <div class="custom-control custom-radio">
-                          <input id="transferenciaBancaria" type="radio"
-                            class="custom-control-input tipoPagoBanco typePay" name="tipoDePago" value="banco">
-                          <label class="custom-control-label" for="transferenciaBancaria">Tranferencia Bancaria</label>
-                          <div class="invalid-feedback">
-                            Eliga Tipo de Pago
-                          </div>
-                        </div>
-                        <fieldset id="bank">
-                          <div class="row pt-3 pb-3">
-                            <div class="col">
-                              <input type="number" min="1" id="numeroCuenta" class="form-control form-pay transferencia"
-                                placeholder="Numero de Cuenta">
-                              <div class="invalid-feedback">
-                                Ingrese nombre de la calle
-                              </div>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </form>
-                    </div>
-
-
-                    <div class="modal-footer">
-                      <button type="submit" class="btn btn-primary" id="save-modal">Guardar</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <table class="table table-articulos">
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col"></th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody id="articles">
+              </tbody>
+            </table>
           </div>
+          <!--Fin box Carrito-->
 
-
-          <div class="box-30">
-            <div class="envio" id="tipo-envio">
-              <div class="box-title">
-                <h5>Tipo de Envío</h5>
-              </div>
-              <form id="formTypeShipping">
-                <div class="custom-control custom-radio">
-                  <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" required=""
-                    value="15">
-                  <label class="custom-control-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
+          <!--Inicia box datos de envio-->
+          <div class="datos-envio">
+            <div class="box-title">
+              <h5>Datos de Envío</h5>
+            </div>
+            <div class="form-envio">
+              <form id="form-date-envio" class="needs-validation">
+                <div class="form-row">
+                  <div class="form-group col-5">
+                    <label for="inputAddress">Calle</label>
+                    <input type="text" class="form-control" id="inputCalle" placeholder="Ingrese calle">
+                    <div class="invalid-feedback">
+                      Ingrese nombre de la calle
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputAddress2">Número</label>
+                    <input type="number" min="1" class="form-control" id="inputPuerta" placeholder="n° de puerta">
+                    <div class="invalid-feedback">
+                      Ingrese numero de puerta
+                    </div>
+                  </div>
                 </div>
-                <div class="custom-control custom-radio">
-                  <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required=""
-                    value="7">
-                  <label class="custom-control-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
-                </div>
-                <div class="custom-control custom-radio">
-                  <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required=""
-                    value="5">
-                  <label class="custom-control-label" for="standardradio">Standar 12 a 15 dias (5%)</label>
-                  <div class="invalid-feedback">Ingrese Tipo de Envio</div>
+                <div class="form-row">
+                  <div class="form-group col-md-5">
+                    <label for="inputCity">Esquina</label>
+                    <input type="text" class="form-control" id="inputEsquina" placeholder="Ingrese esquina">
+                    <div class="invalid-feedback">
+                      Ingrese la esquina
+                    </div>
+                  </div>
                 </div>
               </form>
             </div>
+          </div>
+          <!--Fin box datos de envio-->
 
-
-            <div class="detalle-pagar">
-              <div class="box-title">
-                <h5>Detalle a Pagar</h5>
+          <!--Inicia box forma de pago-->
+          <div class="forma-pago">
+            <div class="box-title">
+              <h5>Forma de Pago</h5>
+            </div>
+            <p>Seleccione medio de pago</p>
+            <div class="boxSeleccionarPago">
+              <div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                  Seleccionar
+                </button>
               </div>
-              <div id="total-pagar">
-
+              <div id="pagoSeleccionado"></div>
+              <div class="invalid-pay">
+                Debe seleccionar medio de pago!
               </div>
+            </div>
+            <!--Fin box forma de pago-->
+
+            <!--Inicia Modal Forma de pago -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="box-modal" class="needs-validation">
+                      <div class="custom-control custom-radio">
+                        <input id="tarjetaCredito" type="radio" class="custom-control-input tipoPagoCredito typePay"
+                          name="tipoDePago" value="credito">
+                        <label class="custom-control-label" for="tarjetaCredito">Tarjeta de Credito</label>
+                        <div class="invalid-feedback">
+                          Eliga Tipo de Pago
+                        </div>
+                      </div>
+                      <fieldset id="card">
+                        <div class="row pb-3 pt-3">
+                          <div class="col">
+                            <input type="number" min="1" id="numeroTarjeta" class="form-control form-pay tarjeta"
+                              placeholder="Numero Tarjeta">
+                            <div class="invalid-feedback">
+                              Ingrese Numero de Tarjeta
+                            </div>
+                          </div>
+                          <div class="col">
+                            <input type="number" min="1" class="form-control form-pay tarjeta" id="codigoSeguridad"
+                              placeholder="Cod Seguridad">
+                            <div class="invalid-feedback">
+                              Ingrese Codigo de Seguridad
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row pb-3">
+                          <div class="col">
+                            <input type="date" class="form-control form-pay tarjeta" id="fechaVencimiento"
+                              placeholder="Fecha de Vencimiento">
+                            <div class="invalid-feedback">
+                              Ingrese Fecha de Vencimiento
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                      <div class="custom-control custom-radio">
+                        <input id="transferenciaBancaria" type="radio"
+                          class="custom-control-input tipoPagoBanco typePay" name="tipoDePago" value="banco">
+                        <label class="custom-control-label" for="transferenciaBancaria">Tranferencia Bancaria</label>
+                        <div class="invalid-feedback">
+                          Eliga Tipo de Pago
+                        </div>
+                      </div>
+                      <fieldset id="bank">
+                        <div class="row pt-3 pb-3">
+                          <div class="col">
+                            <input type="number" min="1" id="numeroCuenta" class="form-control form-pay transferencia"
+                              placeholder="Numero de Cuenta">
+                            <div class="invalid-feedback">
+                              Ingrese nombre de la calle
+                            </div>
+                          </div>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" id="save-modal">Guardar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Fin Modal Forma de pago -->
+          </div>
+          <!--Fin box datos de envio-->
+        </div>
+
+        <!--Inicia contenedor tipo de envio, detalle a pagar-->
+        <div class="box-30">
+          <!--Inicia contenedor tipo de envio-->
+          <div class="envio" id="tipo-envio">
+            <div class="box-title">
+              <h5>Tipo de Envío</h5>
+            </div>
+            <form id="formTypeShipping">
+              <div class="custom-control custom-radio">
+                <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" required=""
+                  value="15">
+                <label class="custom-control-label" for="goldradio">Premium 2 a 5 dias (15%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required=""
+                  value="7">
+                <label class="custom-control-label" for="premiumradio">Express 5 a 8 dias (7%)</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required=""
+                  value="5">
+                <label class="custom-control-label" for="standardradio">Standar 12 a 15 dias (5%)</label>
+                <div class="invalid-feedback">Ingrese Tipo de Envio</div>
+              </div>
+            </form>
+          </div>
+          <!--Fin contenedor tipo de envio-->
+
+          <!--Inicia contenedor detalle a pagar-->
+          <div class="detalle-pagar">
+            <div class="box-title">
+              <h5>Detalle a Pagar</h5>
+            </div>
+            <div id="total-pagar">
 
             </div>
-            <button type="button" class="btn btn-primary ml-1 btn-comprar" id="finalizar-compra">Finaliza
-              compra</button>
           </div>
+          <!--Fin contenedor detalle a pagar-->
+
+          <button type="button" class="btn btn-primary ml-1 btn-comprar" id="finalizar-compra">Finaliza
+            compra</button>
         </div>
+        <!--Fin contenedor tipo de envio, detalle a pagar-->
       </div>
-      <!--Fin contenedor carrito-->
+      <!--Fin contenedor elementos carrito-->
+    </div>
+    <!--Fin contenedor principal-->
 
 
-      <footer class="text-muted bg-light mt-5">
-        <div class="container">
-          <p class="float-right">
-            <a href="#">Volver arriba</a>
-          </p>
-          <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-          <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-        </div>
-      </footer>
+    <footer class="text-muted bg-light mt-5">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
   </div>
   <div id="spinner-wrapper">
     <div class="lds-ring">

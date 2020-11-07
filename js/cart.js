@@ -1,12 +1,8 @@
-//Variables
-var itemCarrito;
-var articles;
-var items;
-var subTotal;
-var totalShipping;
-var subTotalToPay;
-var totalToPay;
-
+//Variables Globales
+var subTotalProduct; //Contiene el subtotal por producto
+var totalShipping;   //Contiene costo envio 
+var subTotalToPay;   //Contiene subtotal a pagar
+var totalToPay;      //Contiene total a pagar
 
 
 
@@ -57,8 +53,8 @@ function eventListener() {
 function getJSON(e) {
     getJSONData(CART).then(function (resultObj) {
         if (resultObj.status === "ok") {
-            itemCarrito = resultObj.data;
-            let articles = itemCarrito.articles;
+            let articles = resultObj.data.articles;
+
             //Guarda datos en local storage
             syncUpLocalStorage(articles);
         }
@@ -85,17 +81,17 @@ function showCart(articles) {
                 <div class="container-number" id="box-count">
                     <div class="image-number">
                         <a href="#">
-                            <img name="${item.name}" src="img/anadir.png" id="increase" alt="">
+                            <img name="${item.name}" src="img/anadir.png" class="increase" alt="">
                         </a>
                     </div>
 
                     <div id="box-cantidad">
-                        <input  type="number" min="1" value="${item.count}" id="cantidad">
+                        <input  type="number" min="1" value="${item.count}" class="cantidad">
                     </div>
 
                     <div class="image-number">
                         <a href="#">
-                            <img name="${item.name}" src="img/menos.png" id="decrease" alt="">
+                            <img name="${item.name}" src="img/menos.png" class="decrease" alt="">
                         </a>
                     </div>
                 </div>
@@ -136,7 +132,7 @@ function showCart(articles) {
 
 //Funcion que calcula detalle a pagar
 function calculationDetailToPay() {
-    subTotal = 0;
+    subTotalProduct = 0;
     totalShipping = 0;
     subTotalToPay = 0;
     totalToPay = 0;
@@ -196,7 +192,7 @@ function increaseQuantity(event) {
     let product = event.target.name;
 
     //Actualiza la cantidad del producto y se crea un nuevo objeto con la cantidad acutalizada.
-    const items = articles.map((item) => {
+    const item = articles.map((item) => {
 
         if (item.name === product) {
             item.count = i;
@@ -209,7 +205,7 @@ function increaseQuantity(event) {
 
     });
 
-    showCart(items);
+    showCart(item);
 }
 
 
@@ -218,14 +214,14 @@ function valorCount(event) {
     event.preventDefault();
 
     const boxCount = event.target.parentElement.parentElement.parentElement;
-    const inputCount = boxCount.querySelector('#cantidad');
+    const inputCount = boxCount.querySelector('.cantidad');
     const value = inputCount.getAttribute('value');
     let i = Number(value);
 
-    if (event.target.id === "increase") {
+    if (event.target.className === "increase") {
         //Incremeta la cantidad de articulos
         i++;
-    } else if (event.target.id === "decrease") {
+    } else if (event.target.className === "decrease") {
         if (i > 1) {
             //Decrementa la cantidad de articulos
             i--;
@@ -254,8 +250,8 @@ function convertPesosToDollars(unitCost, currency) {
 
 //Funcion que retorna el subtotal a pagar
 function getSubTotal(cost) {
-    subTotal += cost;
-    return Number(subTotal.toFixed(2));
+    subTotalProduct += cost;
+    return Number(subTotalProduct.toFixed(2));
 }
 
 //Funcion que retorna el costo de envio a pagar
@@ -290,6 +286,7 @@ function getTotalToPay() {
 //Funcion que guarda los productos agregados al carrtio en el local storage
 function syncUpLocalStorage(articles) {
     localStorage.setItem('cart', JSON.stringify(articles));
+    
     getDateLocalStorage();
 }
 
@@ -328,7 +325,7 @@ function showCountCart() {
 
 
 
-/************VALIDACION BOTON FINALIZAR COMPRA**************/
+/**************VALIDACION BOTON FINALIZAR COMPRA**************/
 
 //Funcion que se ejecuta cuando se reazlia clic en boton finalizar compra
 function showAlert() {
@@ -349,21 +346,12 @@ function showAlert() {
         //Muestra alerta si no se selecciono tipo de envio
         showAlertTypeShipping();
 
-
         //Muestra alerta si no se selecciono medio de pago
         showAlertPay();
 
         //Muestra alerta si la cantidad de productos por articlo es igual o menor a cero
         showAlertCount();
-
-        //Borras los atributos data-target y data-toggle en caso de que esten presentes en el boton finalizar compra
-        const btnFinalizarCompra = document.getElementById('finalizar-compra');
-
-        btnFinalizarCompra.removeAttribute('data-target', '#exampleModal');
-        btnFinalizarCompra.removeAttribute('data-toggle', 'modal');
     }
-
-    showAlertCount();
 }
 
 
@@ -374,11 +362,10 @@ function showBuy() {
     const boxContainer = document.getElementById('opacityModal');
     boxContainer.style.opacity = '0.5';
 
-    let message = ''
+    let message = '';
+
     //Muestra spinner
     boxAlertBuy.style.visibility = 'visible';
-
-
 
     //Muestra la confirmacion de la compra
     setTimeout(function () {
@@ -424,7 +411,7 @@ function showAlertDateShipping() {
         inputEsquina.classList.add('is-valid');
     }
 
-    //Si todos los campos estan completos retorna true para realziar la validacion con el boton finalizar compra
+    //Si todos los campos estan completos retorna true para realizar la validacion con el boton finalizar compra
     if (inputCalle.value !== "" && inputEsquina.value !== "" && inputPuerta.value !== "") {
         return true;
     } else {
@@ -442,10 +429,10 @@ function showCartEmpty() {
         </tr>
         `
         document.getElementById("articles").innerHTML = itemHTML;
-        //Retorna false si hay elementos en el carrtio. Sera utilizado para reazliar la validacion del boton finalizar compra        
+        //Retorna false si no hay elementos en el carrtio. Sera utilizado para realizar la validacion del boton finalizar compra        
         return false;
     } else {
-        //Retorna true si hay elementos en el carrtio. Sera utilizado para reazliar la validacion del boton finalizar compra
+        //Retorna true si hay elementos en el carrtio. Sera utilizado para realizar la validacion del boton finalizar compra
         return true;
     }
 }

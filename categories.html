@@ -17,38 +17,78 @@
     <meta name="google-signin-client_id" content="590348516269-qiks149qj97584dlgir0io4q0p2o8moa.apps.googleusercontent.com">
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block nav" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block nav" href="sell.html">Vender</a>
-        <div class="container-login">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    <!--Inicia contenedor menu de navegacion -->
+   <nav class="navbar navbar-expand-xl navbar navbar-dark bg-dark">
+    <div class="container">
+      <!-- Inicia contenedor icono web -->
+      <a id="navbar-brand" class="navbar-brand" href="index.html">
+        <img src="img/login.png" alt="icono ecommerce">
+      </a>
+      <!-- Fin contenedor icono web -->
+
+      <!-- Inicia contenedor boton hamburguesa -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Fin contenedor boton hamburguesa -->
+
+      <!-- Inicia contenedor enlaces -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link nav" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav" href="sell.html">Vender</a>
+          </li>
+          <!-- Inicio contenedor nombre de usuario -->
+          <li class="nav-item  dropdown">
+            <!-- Inicio boton dropdown -->
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               <span id="username" class="user-name"></span>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="cart.html"><img src="img/carrito-de-compras.png" alt=""
-                  class="icon-login"><span class="box-item">Mi Carrito</span><span class="badge badge-secondary"
-                  id="badge-count"></span></a>
-              <a class="dropdown-item" href="my-profile.html"><img src="img/usuario.png" alt="" class="icon-login"><span
-                  class="box-item">Perfil</span></a>
+            </a>
+            <!-- Fin boton dropdown -->
+
+            <!-- Inicio contenedor elementos carrito, mi perfil, boton salir -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="cart.html">
+                <img src="img/carrito-de-compras.png" alt="" class="icon-login"><span class="box-item">Mi
+                  Carrito</span><span class="badge badge-success" id="badge-count"></span>
+              </a>
+              <a class="dropdown-item" href="my-profile.html">
+                <img src="img/usuario.png" alt="" class="icon-login"><span class="box-item">Perfil</span>
+              </a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt="" id="sign-off"
-                  class="icon-login"><span class="box-item">Salir</span></a>
+              <a class="dropdown-item" href="#" onclick="signOut();"><img src="img/cerrar-sesion.png" alt=""
+                  id="sign-off" class="icon-login"><span class="box-item">Salir</span>
+              </a>
             </div>
-          </div>
-        </div>
+            <!-- Fin contenedor elementos carrito, mi perfil, boton salir -->
+          </li>
+          <!-- Fin contenedor nombre de usuario -->
+        </ul>
       </div>
-    </nav>
+    </div>
+    <!-- Fin contenedor enlaces -->
+  </nav>
+  <!--Fin menu de navegacion -->
+
+
+  
     <main role="main" class="pb-5">
-        <div class="text-center p-4">
-            <h2>Categorías</h2>
-            <p class="lead">Verás aquí todas las categorías del sitio.</p>
-        </div>
         <div class="container">
+          <div class="text-center p-5 boxTitle">
+            <h2>Categorías</h2>
+            <p class="lead p-4">Verás aquí todas las categorías del sitio.</p>
+          </div>
             <div class="row">
                 <div class="col text-right">
                     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
