@@ -1,4 +1,5 @@
 # e-Mercado-JAP
 
-[](img/screenshot-login.png)
-[](img/Screenshot-home.png)
+![Preview Login](img/screenshot-login.png)
+
+![Preview Home](img/Screenshot-home.png)
